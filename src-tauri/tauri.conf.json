@@ -1,0 +1,37 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "excel_file_merger",
+  "version": "0.1.0",
+  "identifier": "com.excelfilemerger.dev",
+  "build": {
+    "frontendDist": "../.next",
+    "devUrl": "http://localhost:3000",
+    "beforeDevCommand": "C:/Users/dell/AppData/Local/pnpm/pnpm.exe dev",
+    "beforeBuildCommand": "C:/Users/dell/AppData/Local/pnpm/pnpm.exe build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "excel_file_merger",
+        "width": 1600,
+        "height": 1200,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}
