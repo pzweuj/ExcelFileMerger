@@ -52,7 +52,7 @@ export function FileTable({
       </TableHeader>
       <TableBody>
         {files.map((fileData, index) => (
-          <TableRow key={fileData.file.name + index}>
+          <TableRow key={`file-${index}-${fileData.file.name}`}>
             <TableCell className="font-medium">{fileData.file.name}</TableCell>
             <TableCell>
               {fileData.compatible ? (

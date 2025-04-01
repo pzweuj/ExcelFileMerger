@@ -26,6 +26,9 @@ export const translations = {
     incompatible: '不兼容',
     remove: '移除',
     switchLanguage: '切换语言',
+    // 添加缺失的翻译键
+    fileAlreadyExists: '文件已存在',
+    fileAlreadyExistsDesc: '您选择的文件已经存在于列表中。',
   },
   en: {
     title: 'Excel File Merger',
@@ -52,5 +55,8 @@ export const translations = {
     incompatible: 'Incompatible',
     remove: 'Remove',
     switchLanguage: 'Switch Language',
+    // 添加缺失的翻译键
+    fileAlreadyExists: 'File Already Exists',
+    fileAlreadyExistsDesc: 'The file you selected already exists in the list.',
   }
 };
