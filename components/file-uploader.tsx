@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"  // 移除 useEffect
 import { Cloud, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { getCurrentWindow } from "@tauri-apps/api/window"
+// 移除 getCurrentWindow 导入
 import { open } from '@tauri-apps/plugin-dialog'
 
 interface FileUploaderProps {
@@ -19,48 +19,14 @@ export function FileUploader({
   onFilesUploaded, 
   isProcessing,
   uploadText = "Upload Files",
-  dragDropText = "Drag and drop files here or click to upload",
+  dragDropText = "Drag and drop files here or click to upload",  // 这个提示文本可以保留或修改
   processingText = "Processing...",
   existingFilePaths = [] // 默认为空数组
 }: FileUploaderProps) {
-  const [isDragActive, setIsDragActive] = useState(false)
+  // 移除拖拽相关状态
+  // const [isDragActive, setIsDragActive] = useState(false)
 
-  useEffect(() => {
-    let unlistenFn: (() => void) | null = null
-
-    const setupDragDrop = async () => {
-      const window = getCurrentWindow()
-      unlistenFn = await window.onDragDropEvent((event) => {
-        if (event.payload.type === 'over') {
-          setIsDragActive(true)
-        } else if (event.payload.type === 'drop') {
-          setIsDragActive(false)
-          const paths = event.payload.paths as string[]
-          const excelFiles = paths.filter(path => 
-            path.toLowerCase().endsWith('.xlsx')
-          )
-          
-          // 添加去重逻辑 - 确保不包含已存在的文件路径
-          const uniqueExcelFiles = excelFiles.filter((path, index, self) => 
-            self.indexOf(path) === index && !existingFilePaths.includes(path)
-          )
-
-          if (uniqueExcelFiles.length > 0) {
-            onFilesUploaded(uniqueExcelFiles)
-          }
-        } else {
-          setIsDragActive(false)
-        }
-      })
-    }
-
-    setupDragDrop()
-    return () => {
-      if (unlistenFn) {
-        unlistenFn()
-      }
-    }
-  }, [onFilesUploaded, existingFilePaths]) // 添加 existingFilePaths 作为依赖
+  // 移除整个拖拽处理的 useEffect
 
   const handleFileSelect = async () => {
     try {
@@ -87,14 +53,15 @@ export function FileUploader({
   return (
     <div
       className={`border-2 border-dashed rounded-lg p-10 text-center transition-colors
-        ${isDragActive ? "border-primary bg-primary/10" : "border-gray-300 hover:border-primary"}
+        border-gray-300 hover:border-primary
         ${isProcessing ? 'opacity-50' : ''}`}
     >
       <div className="flex flex-col items-center justify-center gap-4">
         <Cloud className="h-10 w-10 text-muted-foreground" />
         <div className="flex flex-col items-center">
           <p className="text-sm text-muted-foreground mb-1">
-            {dragDropText}
+            {/* 修改提示文本，不再提及拖放 */}
+            点击下方按钮选择Excel文件
           </p>
           <Button 
             onClick={handleFileSelect}

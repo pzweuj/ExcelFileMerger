@@ -216,7 +216,8 @@ export default function ExcelMerger() {
           onFilesUploaded={handleFilesUploaded} 
           isProcessing={isProcessing} 
           uploadText={t.uploadFiles}
-          dragDropText={t.dragAndDrop}
+          // 修改为仅上传的提示文本，不再提及拖放
+          dragDropText={t.clickToUpload}
           processingText={t.processing}
           existingFilePaths={filePaths}
         />

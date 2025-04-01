@@ -6,6 +6,8 @@ export const translations = {
     description: '上传多个Excel(.xlsx)文件进行合并。只能合并Excel文件中的第一张表。与第一个文件的表头不同的文件将被标记为不兼容。',
     uploadFiles: '上传文件',
     dragAndDrop: '拖放文件到此处或点击上传',
+    // 添加新的仅上传提示
+    clickToUpload: '点击下方按钮选择Excel文件',
     processing: '处理中...',
     mergeCompatibleFiles: '合并兼容文件',
     filesUploaded: '文件已上传',
@@ -35,6 +37,8 @@ export const translations = {
     description: 'Upload multiple Excel (.xlsx) files to merge them. Only the first sheet in each Excel file will be merged. Files with headers different from the first file will be marked as incompatible.',
     uploadFiles: 'Upload Files',
     dragAndDrop: 'Drag and drop files here or click to upload',
+    // 添加新的仅上传提示
+    clickToUpload: 'Click the button below to select Excel files',
     processing: 'Processing...',
     mergeCompatibleFiles: 'Merge Compatible Files',
     filesUploaded: 'Files uploaded',
